@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import englishData from "../englishData.json";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Day = () => {
   const [dailyData, setDailyData] = useState();
@@ -91,32 +92,43 @@ const Day = () => {
   return (
     <div className="container relative">
       <div className="absolute top-0 left-0 p-8">
-        <Link to="/" className="btn-style">
-          Back
+        <Link to="/" className="btn-style flex font-KCC2 hover:shadow-xl">
+          <IoIosArrowBack className="mt-[4px]" /> Back
         </Link>
       </div>
-      <h1 className="text-center text-2xl font-semibold">
+      <h1 className="text-center text-2xl font-semibold font-KCC">
         Day {dailyData.day} - {dailyData.title}
       </h1>
-      <div className="mt-12">
-        <div>{dailyData.sentences[currentPage].english}</div>
+      <div className="mt-12 border-yellow-400 border-solid border-4 rounded-3xl text-center p-4">
+        <div className="font-KCC2">
+          {dailyData.sentences[currentPage].english}
+        </div>
         <button
-          className={`${!isVisible && "bg-black"}`}
+          className={`${!isVisible && "bg-black"} font-KCC2`}
           onClick={() => setIsVisible(!isVisible)}
         >
           {dailyData.sentences[currentPage].korean}
         </button>
-        <div className="mt-4">
-          <button className="btn-style" onClick={onClickPrev}>
+        <div className="mt-4 font-KCC2">
+          <button className="btn-style hover:shadow-xl" onClick={onClickPrev}>
             Prev
           </button>
-          <button className="btn-style ml-2" onClick={onClickNext}>
+          <button
+            className="btn-style ml-2 hover:shadow-xl"
+            onClick={onClickNext}
+          >
             Next
           </button>
-          <button className="btn-style ml-2" onClick={onClickRandom}>
+          <button
+            className="btn-style ml-2 hover:shadow-xl"
+            onClick={onClickRandom}
+          >
             Random
           </button>
-          <button className="btn-style ml-2" onClick={onClickSound}>
+          <button
+            className="btn-style ml-2 hover:shadow-xl"
+            onClick={onClickSound}
+          >
             Sound
           </button>
         </div>

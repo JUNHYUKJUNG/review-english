@@ -7,7 +7,7 @@ const Main = () => {
       <h1 className="text-center text-4xl font-semibold font-KCC">
         정준혁 영어공부
       </h1>
-      <ul className="mt-12 border-yellow-400 border-solid border-4 rounded-3xl  p-4">
+      <ul className="mt-12 border-yellow-400 border-solid border-4 rounded-3xl  p-4 font-KCC2">
         {englishData.map((v, i) => (
           <MainCard key={i} title={v.title} day={v.day} />
         ))}
